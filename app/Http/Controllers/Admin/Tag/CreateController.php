@@ -8,6 +8,6 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        return view('admin.tags.create');
+        return view('admin.tag.create');
     }
 }
