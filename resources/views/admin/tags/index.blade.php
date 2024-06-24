@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Categories</h1>
+                        <h1 class="m-0">Tags</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-1">
-                        <a class="btn btn-block btn-primary" href="{{ route('admin.category.create') }}">Create</a>
+                        <a class="btn btn-block btn-primary" href="{{ route('admin.tag.create') }}">Create</a>
                     </div>
                 </div>
                 <div class="row">
@@ -38,23 +38,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $category)
+                                        @foreach ($tags as $tag)
                                             <tr>
-                                                <td>{{ $category->id }}</td>
+                                                <td>{{ $tag->id }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.category.show', $category) }}">
-                                                        {{ $category->title }}
+                                                    <a href="{{ route('admin.tag.show', $tag) }}">
+                                                        {{ $tag->title }}
                                                     </a>
                                                 </td>
                                                 <td>
                                                     <a class="text-primary"
-                                                       href="{{ route('admin.category.edit', $category) }}">
+                                                       href="{{ route('admin.tag.edit', $tag) }}">
                                                         <i class="fa-solid fa-pencil"></i>
                                                     </a>
                                                 </td>
                                                 <td>
                                                     <form class="d-inline"
-                                                          action="{{ route('admin.category.delete', $category) }}"
+                                                          action="{{ route('admin.tag.delete', $tag) }}"
                                                           method="POST">
                                                         @csrf
                                                         @method('DELETE')
