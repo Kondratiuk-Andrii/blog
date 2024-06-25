@@ -42,7 +42,8 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-bold" rowspan="3">Content:</td>
+                                            <td class="text-bold"
+                                                rowspan="3">Content:</td>
                                             <td>
                                                 {{ $post->content }}
                                             </td>
@@ -55,7 +56,8 @@
                 </div>
                 <div class="row">
                     <div class="col-2">
-                        <a class="btn btn-info btn-block" href="{{ route('admin.post.edit', $post) }}">
+                        <a class="btn btn-info btn-block"
+                           href="{{ route('admin.post.edit', $post) }}">
                             <i class="fa-solid fa-pencil mr-2"></i>
                             <span>Edit</span>
                         </a>
@@ -66,7 +68,8 @@
                               method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-block" type="submit">
+                            <button class="btn btn-danger btn-block"
+                                    type="submit">
                                 <i class="fa-solid fa-trash mr-2"></i>
                                 <span>Remove</span>
                             </button>

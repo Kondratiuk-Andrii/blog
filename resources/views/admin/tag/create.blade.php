@@ -25,13 +25,14 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <form action="{{ route('admin.tag.store') }}" method="POST">
+                        <form action="{{ route('admin.tag.store') }}"
+                              method="POST">
                             @csrf
                             <div class="form-group">
                                 @error('title')
-                                <div class="text-danger text-bold mb-1 ml-1">
-                                    {{ $message }}
-                                </div>
+                                    <div class="text-danger text-bold mb-1 ml-1">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                                 <input class="form-control"
                                        name="title"

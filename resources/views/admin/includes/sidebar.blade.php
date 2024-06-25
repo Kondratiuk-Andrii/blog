@@ -3,7 +3,8 @@
     <div class="sidebar">
         <ul class="nav nav-pills nav-sidebar flex-column pt-3">
             <li class="nav-item">
-                <a href="{{ route('admin.post.index') }}" class="nav-link">
+                <a class="nav-link"
+                   href="{{ route('admin.post.index') }}">
                     <i class="nav-icon fa-solid fa-images"></i>
                     <p>
                         Posts
@@ -11,7 +12,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.category.index') }}" class="nav-link">
+                <a class="nav-link"
+                   href="{{ route('admin.category.index') }}">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Categories
@@ -19,7 +21,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                <a class="nav-link"
+                   href="{{ route('admin.tag.index') }}">
                     <i class="nav-icon fa fa-tags"></i>
                     <p>
                         Tags
@@ -30,4 +33,3 @@
     </div>
     <!-- /.sidebar -->
 </aside>
-

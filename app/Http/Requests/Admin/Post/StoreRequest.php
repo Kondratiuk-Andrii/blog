@@ -24,6 +24,10 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string|unique:posts,title,',
             'content' => 'required|string',
+            'preview_image' => 'required|file',
+            'main_image' => 'required|file',
+            'category_id' => 'required|integer|exists:categories,id',
+
         ];
     }
 
@@ -35,9 +39,10 @@ class StoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'The :Attribute  can not be blank.',
-            'title.unique' => 'Post with this title already exists.',
-            'content.required' => 'The :Attribute  can not be blank.',
+            '*.required' => 'This field is required.',
+            'title.unique' => 'A post with this title already exists.',
+            'category_id.integer' => 'The category must be a valid integer.',
+            'category_id.exists' => 'The selected category does not exist.',
         ];
     }
 }

@@ -22,7 +22,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-1">
-                        <a class="btn btn-block btn-primary" href="{{ route('admin.tag.create') }}">Create</a>
+                        <a class="btn btn-block btn-primary"
+                           href="{{ route('admin.tag.create') }}">Create</a>
                     </div>
                 </div>
                 <div class="row">
@@ -47,7 +48,8 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="text-primary" href="{{ route('admin.tag.edit', $tag) }}">
+                                                    <a class="text-primary"
+                                                       href="{{ route('admin.tag.edit', $tag) }}">
                                                         <i class="fa-solid fa-pencil"></i>
                                                     </a>
                                                 </td>
@@ -57,8 +59,10 @@
                                                           method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="border-0 bg-transparent" type="submit">
-                                                            <i class="fa-solid fa-trash text-danger" role="button"></i>
+                                                        <button class="border-0 bg-transparent"
+                                                                type="submit">
+                                                            <i class="fa-solid fa-trash text-danger"
+                                                               role="button"></i>
                                                         </button>
                                                     </form>
                                                 </td>

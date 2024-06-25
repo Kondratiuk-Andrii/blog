@@ -48,7 +48,8 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                <textarea id="summernote" name="content">
+                                <textarea id="summernote"
+                                          name="content">
                                     {{ old('content') ?? $post->content }}
                                 </textarea>
                             </div>

@@ -49,7 +49,8 @@
                 </div>
                 <div class="row">
                     <div class="col-2">
-                        <a class="btn btn-info btn-block" href="{{ route('admin.tag.edit', $tag) }}">
+                        <a class="btn btn-info btn-block"
+                           href="{{ route('admin.tag.edit', $tag) }}">
                             <i class="fa-solid fa-pencil mr-2"></i>
                             <span>Edit</span>
                         </a>
@@ -60,7 +61,8 @@
                               method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-block" type="submit">
+                            <button class="btn btn-danger btn-block"
+                                    type="submit">
                                 <i class="fa-solid fa-trash mr-2"></i>
                                 <span>Remove</span>
                             </button>
