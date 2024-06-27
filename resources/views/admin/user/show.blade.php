@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">{{ $post->title }}</h1>
+                        <h1 class="m-0">{{ $user->name }}</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-md-8 mt-4">
+                    <div class="col-8 mt-4">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
                                 <table class="table-hover table text-nowrap text-center">
@@ -32,50 +32,25 @@
                                         <tr>
                                             <td class="text-bold">ID:</td>
                                             <td>
-                                                {{ $post->id }}
+                                                {{ $user->id }}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-bold">Title:</td>
+                                            <td class="text-bold">Name:</td>
                                             <td>
-                                                {{ $post->title }}
+                                                {{ $user->name }}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-bold">Preview Image:</td>
+                                            <td class="text-bold">Email:</td>
                                             <td>
-                                                <img class="img-fluid w-25"
-                                                    src="{{ asset('storage/' . $post->preview_image) }}"
-                                                    alt="preview_image">
+                                                {{ $user->email }}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-bold">Content:</td>
-                                            <td style="white-space: normal; word-wrap: break-word;">
-                                                {!! $post->content !!}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-bold">Main Image:</td>
+                                            <td class="text-bold">Role:</td>
                                             <td>
-                                                <img class="img-fluid w-25"
-                                                    src="{{ asset('storage/' . $post->main_image) }}" alt="main_image">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-bold">Category:</td>
-                                            <td>
-                                                {{ $post->category->title }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-bold">Tags:</td>
-                                            <td>
-                                                @if ($post->tags->count() > 0)
-                                                    {{ $post->tags->pluck('title')->implode(', ') }}
-                                                @else
-                                                    No tags
-                                                @endif
+                                                {{ $userRole }}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -86,13 +61,13 @@
                 </div>
                 <div class="row">
                     <div class="col-2">
-                        <a class="btn btn-info btn-block" href="{{ route('admin.post.edit', $post) }}">
+                        <a class="btn btn-info btn-block" href="{{ route('admin.user.edit', $user) }}">
                             <i class="fa-solid fa-pencil mr-2"></i>
                             <span>Edit</span>
                         </a>
                     </div>
                     <div class="col-2">
-                        <form class="d-inline" action="{{ route('admin.post.delete', $post) }}" method="POST">
+                        <form class="d-inline" action="{{ route('admin.user.delete', $user) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-block" type="submit">

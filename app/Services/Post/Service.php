@@ -17,8 +17,8 @@ class Service
     {
         try {
             DB::beginTransaction();
-            $tagIds = $data['tagIds'] ?? [];
-            unset($data['tagIds']);
+            $tagIds = $data['tag_ids'] ?? [];
+            unset($data['tag_ids']);
 
             $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
             $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
@@ -36,8 +36,8 @@ class Service
     {
         try {
             DB::beginTransaction();
-            $tagIds = $data['tagIds'] ?? [];
-            unset($data['tagIds']);
+            $tagIds = $data['tag_ids'] ?? [];
+            unset($data['tag_ids']);
 
             if (isset($data['preview_image'])) {
                 $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
@@ -46,10 +46,10 @@ class Service
                 $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
             }
 
-
             $post->update($data);
             $post->tags()->sync($tagIds);
             DB::commit();
+
             return $post;
         } catch (\Exception $exception) {
             DB::rollBack();

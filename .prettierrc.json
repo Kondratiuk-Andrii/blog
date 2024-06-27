@@ -1,7 +1,5 @@
 {
-    "plugins": [
-        "@shufo/prettier-plugin-blade"
-    ],
+    "plugins": ["@shufo/prettier-plugin-blade"],
     "printWidth": 120,
     "htmlWhitespaceSensitivity": "ignore",
     "semi": true,
@@ -9,7 +7,7 @@
     "trailingComma": "none",
     "tabWidth": 4,
     "useTabs": false,
-    "wrapAttributes": "force-expand-multiline",
+    "wrapAttributes": "auto",
     "wrapAttributesMinAttrs": 2,
     "sortTailwindcssClasses": true,
     "sortHtmlAttributes": "code-guide"
