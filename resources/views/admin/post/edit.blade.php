@@ -146,7 +146,7 @@
                                     @foreach ($tags as $tag)
                                         <option
                                             value="{{ $tag->id }}"
-                                            {{ $post->tags->pluck('id') && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}
+                                            {{ $post->tags->pluck('id')->toArray() && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}
                                         >
                                             {{ $tag->title }}
                                         </option>

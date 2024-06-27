@@ -22,15 +22,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-1">
-                        <a class="btn btn-block btn-primary"
-                           href="{{ route('admin.post.create') }}">Create</a>
+                        <a
+                            class="btn btn-primary"
+                            href="{{ route('admin.post.create') }}"
+                        >Create</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-8 mt-4">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap text-center">
+                                <table class="table-hover table text-nowrap text-center">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -48,21 +50,29 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="text-primary"
-                                                       href="{{ route('admin.post.edit', $post) }}">
+                                                    <a
+                                                        class="text-primary"
+                                                        href="{{ route('admin.post.edit', $post) }}"
+                                                    >
                                                         <i class="fa-solid fa-pencil"></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form class="d-inline"
-                                                          action="{{ route('admin.post.delete', $post) }}"
-                                                          method="POST">
+                                                    <form
+                                                        class="d-inline"
+                                                        action="{{ route('admin.post.delete', $post) }}"
+                                                        method="POST"
+                                                    >
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="border-0 bg-transparent"
-                                                                type="submit">
-                                                            <i class="fa-solid fa-trash text-danger"
-                                                               role="button"></i>
+                                                        <button
+                                                            class="border-0 bg-transparent"
+                                                            type="submit"
+                                                        >
+                                                            <i
+                                                                class="fa-solid fa-trash text-danger"
+                                                                role="button"
+                                                            ></i>
                                                         </button>
                                                     </form>
                                                 </td>
