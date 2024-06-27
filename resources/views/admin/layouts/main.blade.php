@@ -3,52 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link
-        href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}"
+        rel="stylesheet">
     <!-- Select2 -->
-    <link
-        href="{{ asset('plugins/select2/css/select2.min.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('plugins/select2/css/select2.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link
-        href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <!-- Ionicons -->
-    <link
-        href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}" rel="stylesheet">
     <!-- Theme style -->
-    <link
-        href="{{ asset('dist/css/adminlte.min.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
     <!-- summernote -->
-    <link
-        href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
     <!-- overlayScrollbars -->
-    <link
-        href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}" rel="stylesheet">
     <!-- Daterange picker -->
-    <link
-        href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}"
-        rel="stylesheet"
-    >
+    <link href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
 </head>
 
@@ -64,22 +38,25 @@
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        data-widget="pushmenu"
-                        href="#"
-                        role="button"
-                    ><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a
-                        class="nav-link"
-                        href="{{ url('/') }}"
-                    >Home</a>
-                </li>
-            </ul>
+            <div class="col-12 d-flex justify-content-between">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a class="nav-link" href="{{ url('/') }}">Home</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <input class="btn btn-outline-secondary" type="submit" value="Logout">
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </nav>
         <!-- /.navbar -->
 
@@ -119,10 +96,7 @@
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-    <script
-        src="{{ asset('https://kit.fontawesome.com/b51b90f653.js') }}"
-        crossorigin="anonymous"
-    ></script>
+    <script src="{{ asset('https://kit.fontawesome.com/b51b90f653.js') }}" crossorigin="anonymous"></script>
     <!-- Summernote -->
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- Select2 -->
