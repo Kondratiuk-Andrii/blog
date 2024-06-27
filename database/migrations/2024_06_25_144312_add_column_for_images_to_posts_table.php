@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_tags', function (Blueprint $table) {
-            $table->id();
-
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('tag_id')->constrained();
-
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('preview_image')->nullable();
+            $table->string('main_image')->nullable();
         });
     }
 
@@ -26,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_tags');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('preview_image');
+            $table->dropColumn('main_image');
+        });
     }
 };

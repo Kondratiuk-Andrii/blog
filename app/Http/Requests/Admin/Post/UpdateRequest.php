@@ -26,6 +26,11 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string|unique:posts,title,'.$postId,
             'content' => 'required|string',
+            'preview_image' => 'nullable|file',
+            'main_image' => 'nullable|file',
+            'category_id' => 'required|integer|exists:categories,id',
+            'tagIds' => 'nullable|array',
+            'tagIds.*' => 'nullable|integer|exists:tags,id',
         ];
     }
 
@@ -37,9 +42,10 @@ class UpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'The :attribute field can not be blank value',
-            'title.unique' => 'Post with this title already exists.',
-            'content.required' => 'The :attribute field can not be blank value',
+            '*.required' => 'This field is required.',
+            'title.unique' => 'A post with this title already exists.',
+            'category_id.integer' => 'The category must be a valid integer.',
+            'category_id.exists' => 'The selected category does not exist.',
         ];
     }
 }

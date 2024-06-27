@@ -35,7 +35,7 @@
                             enctype="multipart/form-data"
                         >
                             @csrf
-                            <div class="form-group w-50">
+                            <div class="form-group w-75">
                                 <label class="ml-1">Title</label>
                                 @error('title')
                                     <div class="text-danger text-bold mb-1 ml-1">{{ $message }}</div>
@@ -58,7 +58,7 @@
                                     name="content"
                                 >{{ old('content') }}</textarea>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group w-50">
                                 <label class="ml-1">Add Preview image</label>
                                 @error('preview_image')
                                     <div class="text-danger text-bold mb-1 ml-1">{{ $message }}</div>
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group w-50">
                                 <label class="ml-1">Add Main image</label>
                                 @error('main_image')
                                     <div class="text-danger text-bold mb-1 ml-1">{{ $message }}</div>
@@ -111,6 +111,25 @@
                                             {{ $category->id == old('category_id') ? 'selected' : '' }}
                                         >
                                             {{ $category->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <select
+                                    class="select2"
+                                    name="tagIds[]"
+                                    data-placeholder="Select Tags"
+                                    style="width: 100%;"
+                                    multiple="multiple"
+                                >
+                                    @foreach ($tags as $tag)
+                                        <option
+                                            value="{{ $tag->id }}"
+                                            {{ is_array(old('tagIds')) && in_array($tag->id, old('tagIds')) ? 'selected' : '' }}
+                                        >
+                                            {{ $tag->title }}
                                         </option>
                                     @endforeach
                                 </select>

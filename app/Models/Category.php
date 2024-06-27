@@ -11,6 +11,11 @@ class Category extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     protected $table = 'categories';
 
     protected $guarded = false;
