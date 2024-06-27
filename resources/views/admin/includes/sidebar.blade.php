@@ -3,10 +3,15 @@
     <div class="sidebar">
         <ul class="nav nav-pills nav-sidebar flex-column pt-3">
             <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="{{ route('admin.user.index') }}"
-                >
+                <a class="nav-link" href="{{ route('admin.index') }}">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>
+                        Home
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.user.index') }}">
                     <i class="nav-icon fa-solid fa-users"></i>
                     <p>
                         Users
@@ -14,10 +19,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="{{ route('admin.post.index') }}"
-                >
+                <a class="nav-link" href="{{ route('admin.post.index') }}">
                     <i class="nav-icon fa-solid fa-images"></i>
                     <p>
                         Posts
@@ -25,10 +27,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="{{ route('admin.category.index') }}"
-                >
+                <a class="nav-link" href="{{ route('admin.category.index') }}">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Categories
@@ -36,10 +35,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="{{ route('admin.tag.index') }}"
-                >
+                <a class="nav-link" href="{{ route('admin.tag.index') }}">
                     <i class="nav-icon fa fa-tags"></i>
                     <p>
                         Tags
