@@ -21,6 +21,16 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'post_user_likes');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     protected $table = 'posts';
 
     protected $guarded = false;

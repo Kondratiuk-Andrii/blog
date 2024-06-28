@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\AdminPanelMiddleware;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -9,12 +9,34 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 });
 
 Route::group([
-    'namespace' => 'App\Http\Controllers\Admin',
-    'prefix' => 'admin',
-    'middleware' => [AdminPanelMiddleware::class],
+    'namespace' => 'App\Http\Controllers\Personal',
+    'prefix' => 'personal',
+    'middleware' => ['auth'],
 ], function () {
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', 'IndexController')->name('admin.index');
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+        Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+    });
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
+        Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
+    });
+});
+
+Route::group([
+    'namespace' => 'App\Http\Controllers\Admin',
+    'prefix' => 'admin',
+    'middleware' => [
+        AdminMiddleware::class,
+    ],
+], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('admin.main.index');
     });
 
     // categories

@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('personal.layouts.main')
 
 @section('content')
     <div class="content-wrapper">
@@ -7,62 +7,51 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tags</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Dashboard</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+                        <h1 class="m-0">Commented Posts</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
+        <!-- /.content-header -->
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-1">
-                        <a class="btn btn-block btn-primary"
-                           href="{{ route('admin.tag.create') }}">Create</a>
-                    </div>
-                </div>
+                <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-8 mt-4">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap text-center">
+                                <table class="table-hover table text-nowrap text-center">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
+                                            <th>Comment</th>
+                                            <th>Post</th>
                                             <th colspan="2">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($tags as $tag)
+                                        @foreach ($comments as $comment)
                                             <tr>
-                                                <td>{{ $tag->id }}</td>
+                                                <td style="white-space: normal; word-wrap: break-word;">
+                                                    {!! $comment->content !!}
+                                                </td>
                                                 <td>
-                                                    <a href="{{ route('admin.tag.show', $tag) }}">
-                                                        {{ $tag->title }}
-                                                    </a>
+                                                    {{ $comment->post->title }}
                                                 </td>
                                                 <td>
                                                     <a class="text-primary"
-                                                       href="{{ route('admin.tag.edit', $tag) }}">
+                                                        href="{{ route('personal.comment.edit', $comment) }}">
                                                         <i class="fa-solid fa-pencil"></i>
                                                     </a>
                                                 </td>
                                                 <td>
                                                     <form class="d-inline"
-                                                          action="{{ route('admin.tag.delete', $tag) }}"
-                                                          method="POST">
+                                                        action="{{ route('personal.comment.delete', $comment) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="border-0 bg-transparent"
-                                                                type="submit">
-                                                            <i class="fa-solid fa-trash text-danger"
-                                                               role="button"></i>
+                                                        <button class="border-0 bg-transparent" type="submit">
+                                                            <i class="fa-solid fa-trash text-danger" role="button"></i>
                                                         </button>
                                                     </form>
                                                 </td>

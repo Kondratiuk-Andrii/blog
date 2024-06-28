@@ -29,11 +29,11 @@
                 <div class="navbar-collapse collapse" id="edicaMainNav">
                     <ul class="navbar-nav mt-lg-0 mx-auto mt-2">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
                         </li>
                         @can('view', auth()->user())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.index') }}">Admin Page</a>
+                                <a class="nav-link" href="{{ route('admin.main.index') }}">Admin Page</a>
                             </li>
                         @endcan
                             <li class="nav-item dropdown">
@@ -53,7 +53,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="{{ route('personal.main.index') }}">Personal Page</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav mt-lg-0 mt-2">

@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminPanelMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class AdminPanelMiddleware
     {
         $user = auth()->user();
         if (! $user || ! isset($user->role) || $user->role !== User::ROLE_ADMIN) {
-            return redirect()->route('home');
+            abort(404);
         }
 
         return $next($request);

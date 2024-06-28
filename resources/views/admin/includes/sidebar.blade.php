@@ -3,7 +3,7 @@
     <div class="sidebar">
         <ul class="nav nav-pills nav-sidebar flex-column pt-3">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.index') }}">
+                <a class="nav-link" href="{{ route('admin.main.index') }}">
                     <i class="nav-icon fas fa-home"></i>
                     <p>
                         Home
