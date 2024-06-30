@@ -8,6 +8,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('home');
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
+    Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
+    // posts/{post}/comments
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
+        Route::post('/', 'StoreController')->name('post.comment.store');
+    }
+    );
+    // posts/{post}/like
+    //    Route::group(['namespace' => 'Like', 'prefix' => '{post}/like'], function () {)
+});
+
 Route::group([
     'namespace' => 'App\Http\Controllers\Personal',
     'prefix' => 'personal',

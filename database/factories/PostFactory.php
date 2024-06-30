@@ -24,11 +24,9 @@ class PostFactory extends Factory
             'images/MZ3tHFxaDb711FunxttOlnGdpvZplGb507YgMzSD.jpg',
         ];
 
-        static $postId = 1;
-
         return [
-            'title' => 'Post #'.$postId++,
-            'content' => $this->faker->text(),
+            'title' => $this->faker->sentence(3),
+            'content' => $this->faker->text(1000),
             'category_id' => Category::inRandomOrder()->first()->id,
             'preview_image' => $this->faker->randomElement($imagePaths),
             'main_image' => $this->faker->randomElement($imagePaths),
