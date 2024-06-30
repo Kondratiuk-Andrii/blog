@@ -14,10 +14,19 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
     // posts/{post}/comments
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
         Route::post('/', 'StoreController')->name('post.comment.store');
-    }
-    );
+    });
     // posts/{post}/like
-    //    Route::group(['namespace' => 'Like', 'prefix' => '{post}/like'], function () {)
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/like'], function () {
+        Route::post('/', 'StoreController')->name('post.like.store');
+    });
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categories'], function () {
+    Route::get('/', 'IndexController')->name('category.index');
+
+    Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], function () {
+        Route::get('/', 'IndexController')->name('category.post.index');
+    });
 });
 
 Route::group([

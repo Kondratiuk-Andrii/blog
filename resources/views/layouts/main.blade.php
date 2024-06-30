@@ -25,6 +25,11 @@
                 </div>
                 <div class="navbar-collapse d-flex justify-content-end collapse" id="edicaMainNav">
                     <ul class="navbar-nav mt-lg-0 mt-2">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ route('category.index') }}">
+                                Categories
+                            </a>
+                        </li>
                         @guest
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown"
@@ -41,7 +46,8 @@
                                     @endif
                                 </div>
                             </li>
-                        @else
+                        @endguest
+                        @auth()
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown"
                                     href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -67,7 +73,7 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endauth
                     </ul>
                 </div>
             </nav>
@@ -85,6 +91,20 @@
             duration: 1000
         });
     </script>
+    <style>
+        .like-button .fa-heart {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .like-button:focus {
+            outline: none;
+        }
+
+        .like-button:hover .fa-heart {
+            transform: scale(1.2);
+        }
+    </style>
+
 </body>
 
 </html>

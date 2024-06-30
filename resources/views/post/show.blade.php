@@ -34,26 +34,47 @@
                             @endforeach
                         </div>
                     </section>
-                    @if ($post->comments->count() > 0)
-                        <section class="comment-list mb-5" data-aos="fade-up">
-                            <h2 class="section-title mb-4">
-                                Comments ({{ $post->comments->count() }})
-                            </h2>
-                            @foreach ($post->comments as $comment)
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $comment->user->name }}</h5>
-                                        <p class="card-text">{{ $comment->content }}</p>
-                                        <p class="card-text text-muted">{{ $comment->dateAsCarbon->diffForHumans() }}
-                                        </p>
-                                    </div>
+                    <section class="comment-list mb-5" data-aos="fade-up">
+                        <div class="row d-flex justify-content-between align-items-center mx-1 mb-4">
+                            <div>
+                                <h2 class="section-title">
+                                    Comments ({{ $post->comments->count() }})
+                                </h2>
+                            </div>
+                            @auth()
+                                <form action="{{ route('post.like.store', $post) }}" method="POST">
+                                    @csrf
+                                    <button class="like-button border-0 bg-transparent" type="submit">
+                                        <i class="fa{{ auth()->user()->likedPosts->contains($post->id)? 's': 'r' }} fa-heart"
+                                            role="button"></i>
+                                    </button>
+                                    {{ $post->likes_count }}
+                                </form>
+                            @endauth
+                            @guest()
+                                <div>
+                                    <a class="like-button d-inline text-dark text-decoration-none border-0 bg-transparent"
+                                        href="{{ route('login') }}">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                    {{ $post->likes_count }}
                                 </div>
-                            @endforeach
-                        </section>
-                    @endif
-                    @auth()
-                        <section class="comment-section">
-                            <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
+                            @endguest
+                        </div>
+                        @foreach ($post->comments as $comment)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $comment->user->name }}</h5>
+                                    <p class="card-text">{{ $comment->content }}</p>
+                                    <p class="card-text text-muted">{{ $comment->dateAsCarbon->diffForHumans() }}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </section>
+                    <section class="comment-section" data-aos="fade-up">
+                        @auth()
+                            <h2 class="section-title">Leave a Reply</h2>
                             <form action="{{ route('post.comment.store', $post) }}" method="post">
                                 @csrf
                                 <div class="row">
@@ -70,8 +91,8 @@
                                     </div>
                                 </div>
                             </form>
-                        </section>
-                    @endauth
+                        @endauth
+                    </section>
                 </div>
             </div>
         </div>

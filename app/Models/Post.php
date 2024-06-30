@@ -11,6 +11,10 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $withCount = ['likes'];
+
+    protected $with = ['category', 'likes'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

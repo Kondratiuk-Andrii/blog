@@ -23,7 +23,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>10</h3>
+                                <h3>{{ $likedPostsCount }}</h3>
                                 <p> Liked Posts </p>
                             </div>
                             <div class="icon">
@@ -39,7 +39,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>10</h3>
+                                <h3>{{ $commentsCount }}</h3>
                                 <p>Comments</p>
                             </div>
                             <div class="icon">

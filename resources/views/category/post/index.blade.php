@@ -9,7 +9,7 @@
                     @foreach ($data['posts'] as $post)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
                             <div class="blog-post-thumbnail-wrapper">
-                                <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
+                                <img src="{{ asset('storage/' . $post->preview_image) }}" alt="blog post">
                             </div>
                             <div class="d-flex justify-content-between mx-1">
                                 <p class="blog-post-category">{{ $post->category->title }}</p>
@@ -52,7 +52,7 @@
                             @foreach ($data['randomPosts'] as $post)
                                 <div class="col-md-6 blog-post" data-aos="fade-up">
                                     <div class="blog-post-thumbnail-wrapper">
-                                        <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
+                                        <img src="{{ asset('storage/' . $post->preview_image) }}" alt="blog post">
                                     </div>
                                     <p class="blog-post-category">{{ $post->category->title }}</p>
                                     <a class="blog-post-permalink" href="{{ route('post.show', $post) }}">
@@ -70,7 +70,7 @@
                             @foreach ($data['topLikedPosts'] as $post)
                                 <li class="post">
                                     <a class="post-permalink media pr-2" href="{{ route('post.show', $post) }}">
-                                        <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
+                                        <img src="{{ asset('storage/' . $post->preview_image) }}" alt="blog post">
                                         <div class="media-body d-flex justify-content-between">
                                             <h6 class="post-title">{{ $post->title }}</h6>
                                             <h6 class="post-likes text-muted">
