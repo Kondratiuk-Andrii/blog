@@ -27,7 +27,7 @@ class PostFactory extends Factory
         static $postId = 1;
 
         return [
-            'title' => 'Post #' . $postId++,
+            'title' => 'Post #'.$postId++,
             'content' => $this->faker->text(),
             'category_id' => Category::inRandomOrder()->first()->id,
             'preview_image' => $this->faker->randomElement($imagePaths),
