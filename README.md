@@ -1,14 +1,14 @@
-# social_network
+# blog
 
-`social_network` is a project that provides a basic social networking platform where users can create profiles, post updates, and interact with other users. It is designed to demonstrate core features of social networking applications.
+`blog` is a project for a blogging platform where users can create, edit, and manage blog posts. It provides a simple interface for both authors and readers, demonstrating basic blog functionalities.
 
 ## Description
 
-This project is a simple social networking application that allows users to create and manage their profiles, post updates, and interact with other users. It is implemented using modern web technologies and frameworks to provide a scalable and maintainable codebase.
+This project is a blogging platform that allows users to write, publish, and manage their blog posts. It includes features for creating posts, editing content, and managing user interactions with posts.
 
 ## Features
 
-- User profile creation and management.
-- Ability to post updates and view posts from others.
-- User interactions such as likes and comments.
-- Basic notifications for user interactions.
+- Create and edit blog posts.
+- View and comment on posts.
+- User authentication and profile management.
+- Categorization and tagging of posts.
